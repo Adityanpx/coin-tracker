@@ -3,35 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto Market Tracker</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <main>
+        <div>
+            <input id="searchInput" placeholder="Enter Name..."/>
+            <button id="Search">Search</button>
+            <button id="sortbyMc"> Sort By Markrt cap   </button>
+            <button id="sortByPc">    Sort By Perentage change  </button>
 
-    <h1>Crypto Market Tracker</h1>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Symbol</th>
+                        <th>Image</th>
+                        <!-- <th>SYMBOL</th> -->
+                        <th>Cur_Price</th>
+                        
+                        <th>
+                            Market Cap
+                        </th>
+                        <th>Total_Volume</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
 
-    <div class="controls">
-        <input type="text" id="searchInput" placeholder="Search by name...">
-        <button onclick="searchCrypto()">Search</button>
-        <button onclick="sortByMarketCap()">Sort by Market Cap</button>
-        <button onclick="sortByPriceChange()">Sort by % Change</button>
-    </div>
-
-    <table border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Symbol</th>
-                <th>Current Price</th>
-                <th>Market Cap</th>
-                <th>24h % Change</th>
-            </tr>
-        </thead>
-        <tbody id="cryptoTable"></tbody>
-    </table>
-
+                </tbody>
+            </table>
+        </div>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
