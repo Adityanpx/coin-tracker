@@ -8,12 +8,25 @@ async function getData() {
         const response = await fetch(API_URL);
         const data = await response.json();
         cryptoData = data;
-        console.log(data);
         renderTable(data);
     } catch(error) {
         console.log("Error is:", error);
     }
 };
+
+function getDataWithThen() {
+    document.getElementById("tbody").innerHTML = "<tr><td colspan='6'>Loading...</td></tr>";
+    fetch(API_URL)
+        .then(response => response.json())
+        .then(data => {
+            cryptoData = data;
+            renderTable(data);
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            document.getElementById("tbody").innerHTML = `<tr><td colspan='6'>Error loading data: ${error.message}</td></tr>`;
+        });
+}
 
 function renderTable(data) {
     let tbody = document.getElementById("tbody");
@@ -45,7 +58,6 @@ function search () {
         data.name.toLocaleLowerCase().includes(text)
 
     );
-    console.log(filteredData);
     
     renderTable(filteredData)
 
